@@ -15,9 +15,6 @@ import compiladores.ex2.Tag;
 %standalone
 %public 
 %class Lexer
-%{
-int tokensQtde = 0;  
-%}
 %type Token
 %eofclose
 
@@ -29,10 +26,6 @@ float = {integer}.{digit}+
 letter = [A-z]|[a-z]
 underline = _
 identifier = ( {underline} | {letter} )( {letter}* | {integer}* | {digit}* )
-keyword = class| public | extends | static | void | boolean | void | while | if | else | return | false | true | this | new
-
-
-
 
 %%
 
@@ -45,7 +38,7 @@ keyword = class| public | extends | static | void | boolean | void | while | if 
 "}"|
 "["|
 "]" 
-{ tokensQtde++; return new Delimiters(yytext()); }
+{ return new Delimiters(yytext()); }
 "&&"|
 "=="|
 "!="|
@@ -59,11 +52,23 @@ keyword = class| public | extends | static | void | boolean | void | while | if 
 "*" |
 "/" |
  "!"
- { tokensQtde++; System.out.print(yytext()) }
-{keyword}|
-"int"							{ tokensQtde++; return new KeyWords(yytext()); }
-{identifier}					{ tokensQtde++; return new Identifier(yytext()); }
-{float}							{ tokensQtde++; return new Number(yytext(), Tag.TAG_FLOAT); }
-{integer} 						{ tokensQtde++; return new Number(yytext(), Tag.TAG_INT); }
+ { System.out.print(yytext()) }
+"class"|
+"public"|
+"int"|
+"static"|
+"void"|
+"boolean"|
+"while"|
+"if"|
+"else"|
+"return"|
+"false"|
+"true"|
+"this"|
+"new"
+{ return new KeyWords(yytext()); }
+{identifier}					{ return new Identifier(yytext()); }
+{float}							{ return new Number(yytext(), Tag.TAG_FLOAT); }
+{integer} 						{ return new Number(yytext(), Tag.TAG_INT); }
 {whitespace}|{comment}   		{ /* Ignore */ }
-
