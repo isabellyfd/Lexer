@@ -12,4 +12,8 @@ public class Delimiters extends Token {
 	public String getDelimiter(){
 		return this.del;
 	}
+	
+	public String toString(){
+		return "[Token => Delimiters : " + del + " TAG: " + this.tag;		
+	}
 }

@@ -17,4 +17,8 @@ public class Number extends Token {
 		return this.num;
 	}
 	
+	public String toString(){
+		return "[Token => Number: " + num + " TAG: " + this.tag;
+	}
+	
 }

@@ -15,7 +15,6 @@ import compiladores.ex2.Tag;
 %standalone
 %public 
 %class Lexer
-%type Token
 %eofclose
 
 whitespace = [\n\t ]
@@ -38,7 +37,7 @@ identifier = ( {underline} | {letter} )( {letter}* | {integer}* | {digit}* )
 "}"|
 "["|
 "]" 
-{ return new Delimiters(yytext()); }
+{System.out.println( new Delimiters(yytext()).toString()); }
 "&&"|
 "=="|
 "!="|
@@ -52,7 +51,7 @@ identifier = ( {underline} | {letter} )( {letter}* | {integer}* | {digit}* )
 "*" |
 "/" |
  "!"
- { System.out.print(yytext()) }
+ { System.out.println(new Op(yytext()).toString()); }
 "class"|
 "public"|
 "int"|
@@ -67,8 +66,8 @@ identifier = ( {underline} | {letter} )( {letter}* | {integer}* | {digit}* )
 "true"|
 "this"|
 "new"
-{ return new KeyWords(yytext()); }
-{identifier}					{ return new Identifier(yytext()); }
-{float}							{ return new Number(yytext(), Tag.TAG_FLOAT); }
-{integer} 						{ return new Number(yytext(), Tag.TAG_INT); }
+{ System.out.println( new KeyWords(yytext()).toString()); }
+{identifier}					{ System.out.println (new Identifier(yytext().toString())); }
+{float}							{ System.out.println (new Number(yytext(), Tag.TAG_FLOAT).toString()); }
+{integer} 						{ System.out.println (new Number(yytext(), Tag.TAG_INT).toString()); }
 {whitespace}|{comment}   		{ /* Ignore */ }

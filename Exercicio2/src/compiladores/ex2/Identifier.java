@@ -11,4 +11,8 @@ public class Identifier extends Token {
 	public String getId(){
 		return this.id;
 	}
+	
+	public String toString(){
+		return "[Token => Identifier: " + id + " TAG: " + this.tag;
+	}
 }

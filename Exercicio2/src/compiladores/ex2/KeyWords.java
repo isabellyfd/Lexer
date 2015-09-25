@@ -11,4 +11,8 @@ public class KeyWords extends Token{
 	public String getKeyWord(){
 		return this.keyWord;
 	}
+	
+	public String toString(){
+		return "[Token => KeyWord: " + keyWord + " TAG: " + this.tag;
+	}
 }

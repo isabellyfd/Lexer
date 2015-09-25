@@ -12,4 +12,8 @@ public class Op extends Token{
 	public String getOp(){
 		return this.op;
 	}
+	
+	public String toString(){
+		return "[Token => Op: " + op + " TAG: " + this.tag;
+	}
 }
