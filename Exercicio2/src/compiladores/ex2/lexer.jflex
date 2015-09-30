@@ -65,3 +65,4 @@ identifier = ( {underline} | {letter} )( {letter}* | {integer}* | {digit}* )
 {float}							{ System.out.println ((new Number(yytext(), Tag.TAG_FLOAT)).toString()); }
 {integer} 						{ System.out.println ((new Number(yytext(), Tag.TAG_INT)).toString()); }
 {whitespace}|{comment}   		{ /* Ignore */ }
+.				                { System.out.println("Illegal char"); }
