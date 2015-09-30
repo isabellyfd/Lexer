@@ -13,6 +13,6 @@ public class KeyWords extends Token{
 	}
 	
 	public String toString(){
-		return "[Token => KeyWord: " + keyWord + " TAG: " + this.tag;
+		return "[Token => KeyWord: " + keyWord + " == TAG: " + this.tag + "]";
 	}
 }

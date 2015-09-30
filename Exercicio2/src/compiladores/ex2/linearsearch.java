@@ -1,3 +1,4 @@
+package compiladores.ex2;
 class LinearSearch{
     public static void main(String[] a){
 	System.out.println(new LS().Start(10));

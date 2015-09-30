@@ -1,11 +1,5 @@
 package compiladores.ex2;
 
-import compiladores.ex2.Delimiters;
-import compiladores.ex2.Identifier;
-import compiladores.ex2.KeyWords;
-import compiladores.ex2.Number;
-import compiladores.ex2.Op;
-import compiladores.ex2.Tag;
 
 %%
 
@@ -37,7 +31,7 @@ identifier = ( {underline} | {letter} )( {letter}* | {integer}* | {digit}* )
 "}"|
 "["|
 "]" 
-{System.out.println( new Delimiters(yytext()).toString()); }
+{System.out.println( (new Delimiters(yytext())).toString()); }
 "&&"|
 "=="|
 "!="|
@@ -51,7 +45,7 @@ identifier = ( {underline} | {letter} )( {letter}* | {integer}* | {digit}* )
 "*" |
 "/" |
  "!"
- { System.out.println(new Op(yytext()).toString()); }
+ { System.out.println( (new Op(yytext())).toString()); }
 "class"|
 "public"|
 "int"|
@@ -66,8 +60,8 @@ identifier = ( {underline} | {letter} )( {letter}* | {integer}* | {digit}* )
 "true"|
 "this"|
 "new"
-{ System.out.println( new KeyWords(yytext()).toString()); }
-{identifier}					{ System.out.println (new Identifier(yytext().toString())); }
-{float}							{ System.out.println (new Number(yytext(), Tag.TAG_FLOAT).toString()); }
-{integer} 						{ System.out.println (new Number(yytext(), Tag.TAG_INT).toString()); }
+{ System.out.println( (new KeyWords(yytext())).toString()); }
+{identifier}					{ System.out.println ( (new Identifier(yytext())).toString()); }
+{float}							{ System.out.println ((new Number(yytext(), Tag.TAG_FLOAT)).toString()); }
+{integer} 						{ System.out.println ((new Number(yytext(), Tag.TAG_INT)).toString()); }
 {whitespace}|{comment}   		{ /* Ignore */ }

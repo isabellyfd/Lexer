@@ -18,7 +18,7 @@ public class Number extends Token {
 	}
 	
 	public String toString(){
-		return "[Token => Number: " + num + " TAG: " + this.tag;
+		return "[Token => Number: " + num + " == TAG: " + this.tag + "]";
 	}
 	
 }

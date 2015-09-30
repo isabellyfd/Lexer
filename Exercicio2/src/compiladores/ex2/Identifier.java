@@ -13,6 +13,6 @@ public class Identifier extends Token {
 	}
 	
 	public String toString(){
-		return "[Token => Identifier: " + id + " TAG: " + this.tag;
+		return "[Token => Identifier: " + id + " == TAG: " + this.tag + "]";
 	}
 }

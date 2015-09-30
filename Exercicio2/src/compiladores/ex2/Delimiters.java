@@ -14,6 +14,6 @@ public class Delimiters extends Token {
 	}
 	
 	public String toString(){
-		return "[Token => Delimiters : " + del + " TAG: " + this.tag;		
+		return "[Token => Delimiters : " + del + " == TAG: " + this.tag + "]";		
 	}
 }

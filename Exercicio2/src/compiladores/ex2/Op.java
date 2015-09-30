@@ -14,6 +14,6 @@ public class Op extends Token{
 	}
 	
 	public String toString(){
-		return "[Token => Op: " + op + " TAG: " + this.tag;
+		return "[Token => Op: " + op + " == TAG: " + this.tag + "]";
 	}
 }
